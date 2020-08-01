@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Test
+        </title>
+        <script type="module">
+            import { BrowserGanttBoard } from "./dist/giganttic-browser.esm.js";
+
+            document.addEventListener('DOMContentLoaded', () => {
+                
+                const gantt = new BrowserGanttBoard({
+                    el: "#gantt",
+                    taskSort: (a,b) => a.endDate > b.endDate ? 1 : -1,
+                    tasks: [
+                        {
+                            id: '3',
+                            metadata: {
+                                title: 'Go Outside',
+                                color: 'green'
+                            },
+                            startDate: new Date(Date.now() + (86400000 * 3)),
+                            endDate: new Date(Date.now() + (86400000 * 6)),
+                            dependencies: [
+                                '2'
+                            ]
+                        },
+                        {
+                            id: '1',
+                            metadata: {
+                                title: 'Lick a Person',
+                                color: 'red'
+                            },
+                            startDate: new Date(Date.now()),
+                            endDate: new Date(Date.now() + 86400000),
+                            dependencies: [
+                                '2'
+                            ]
+                        },
+                        {
+                            id: '4',
+                            metadata: {
+                                color: 'blue',
+                                title: 'Be Milk',
+                                borderColor: 'rebeccapurple',
+                            },                            
+                            startDate: new Date(Date.now()),
+                            endDate: new Date(Date.now()),
+                            dependencies: [
+                                '2'
+                            ]
+                        },
+                        {
+                            id: '2',
+                            metadata: {
+                                color: 'purple',
+                                title: 'Get incredibly ripped',
+                                borderColor: 'lime',
+                            },
+                            startDate: new Date(Date.now()),
+                            endDate: new Date(Date.now() + (86400000 * 2)) //dependent task ends after depending task
+                        },
+                        
+                    ]
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="gantt"></div>
+    </body>
+</html>

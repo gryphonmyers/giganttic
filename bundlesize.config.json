@@ -1,0 +1,14 @@
+{
+    "files": [
+      {
+        "path": "./dist/giganttic-browser.esm.min.js",
+        "maxSize": "10 kB",
+        "compression": "brotli"
+      },
+      {
+        "path": "./dist/giganttic-browser.cjs.min.js",
+        "maxSize": "10 kB",
+        "compression": "brotli"
+      }
+    ]
+  }
