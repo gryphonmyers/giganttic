@@ -31,9 +31,28 @@ export default [
     plugins: [nodeResolve()],
     input: './lib/giganttic-browser.js',
     output: {
+      file: 'dist/giganttic-browser.umd.js',
+      name: 'Giganttic',
+      format: 'umd'
+    }
+  }, 
+  {
+    plugins: [nodeResolve()],
+    input: './lib/giganttic-browser.js',
+    output: {
       file: 'dist/giganttic-browser.esm.min.js',
       plugins: [terser()],
       format: 'esm'
+    }
+  },
+  {
+    plugins: [nodeResolve()],
+    input: './lib/giganttic-browser.js',
+    output: {
+      file: 'dist/giganttic-browser.umd.min.js',
+      plugins: [terser()],
+      name: 'Giganttic',
+      format: 'umd'
     }
   }
 ];

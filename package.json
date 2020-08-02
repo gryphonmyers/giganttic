@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "description": "Gantt chart data visualization utilizing modern Javascript APIs",
   "main": "./dist/giganttic-browser.cjs.js",
-  "browser": "./dist/giganttic-browser.cjs.js",
+  "browser": "./dist/giganttic-browser.umd.js",
+  "module": "./dist/giganttic-browser.esm.js",
   "scripts": {
     "bundlesize": "bundlesize",
-    "build": "rimraf dist &&rollup -c rollup.config.js",
+    "build": "rimraf dist && rollup -c rollup.config.js",
+    "build-watch": "rollup -c rollup.config.js --watch",
     "dev": "rollup -c rollup.dev.config.js --watch",
     "test": "c8 --reporter=html --reporter=text --check-coverage --lines 80 ava test/*.js && bundlesize",
     "prepublishOnly": "npm test && npm run build"
